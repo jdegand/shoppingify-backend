@@ -43,6 +43,7 @@ This application/site was created as a submission to a [DevChallenges](https://d
 - Cross referencing models might be overkill here 
 - Design choice -  add quantity to item model versus list model
 - Need user attached to items ? 
+- Problem with making list name unique - different users cannot have same list name
 
 ## How To Use
 
