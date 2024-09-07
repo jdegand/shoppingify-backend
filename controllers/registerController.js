@@ -19,7 +19,8 @@ const handleNewUser = async (req, res) => {
             "password": hashedPwd
         });
 
-        res.status(201).json({ 'success': `New user ${user} created!` });
+        // passing the username doesn't matter as it is not used in the frontend
+        res.status(201).json({ 'success': `New user ${result.username} created!` });
     } catch (err) {
         res.status(500).json({ 'message': err.message });
     }
