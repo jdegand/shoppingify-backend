@@ -81,29 +81,6 @@ const getListById = async (req, res) => {
         })
 }
 
-const getListByListId = async (req, res) => {
-
-    const accessToken = req.headers.authorization.split(' ')[1];
-
-    jwt.verify(
-        accessToken,
-        process.env.ACCESS_TOKEN_SECRET,
-        async (err, decoded) => {
-
-            try {
-                if (!req?.params?.id) return res.status(400).json({ "message": 'List ID required' });
-
-                const list = await List.findOne({ _id: req.params.id }).exec();
-                if (!list) {
-                    return res.status(204).json({ 'message': `List ID ${req.params.id} not found` });
-                }
-                res.json(list);
-            } catch (err) {
-                res.status(500).json({ 'message': err.message });
-            }
-        })
-}
-
 const updateList = async (req, res) => {
 
     const accessToken = req.headers.authorization.split(' ')[1];
@@ -146,7 +123,6 @@ const updateList = async (req, res) => {
 module.exports = {
     getLists,
     getListById,
-    getListByListId,
     createList,
     updateList,
 }

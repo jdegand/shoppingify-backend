@@ -11,7 +11,4 @@ router.route('/')
 router.route('/:id')
     .get(verifyJWT, listController.getListById)
 
-router.route('/v2/:id')
-.get(verifyJWT, listController.getListByListId)
-
 module.exports = router;
