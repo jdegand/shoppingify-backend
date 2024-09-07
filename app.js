@@ -8,8 +8,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 
-//const indexRouter = require('./routes/index');
-//const usersRouter = require('./routes/users');
 const registerRouter = require('./routes/register');
 const authRouter = require('./routes/auth');
 const refreshRouter = require('./routes/refresh');
@@ -47,7 +45,7 @@ app.use('/categories', categoriesRouter)
 app.use('/items', itemsRouter);
 app.use('/lists', listsRouter);
 
-//app.use('/users', usersRouter); // profile
+// app.use('/users', usersRouter); // profile
 
 app.all('*', (req, res) => {
     res.status(404);

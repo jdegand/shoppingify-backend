@@ -22,7 +22,7 @@
 - cookie-parser
 - cors
 - express
-- jsonwebtoken    
+- jsonwebtoken
 - mongoose
 
 ## Features
@@ -31,18 +31,18 @@ This application/site was created as a submission to a [DevChallenges](https://d
 
 ## Continued Development
 
-- Categories have to be created before Items - debatable if category should belong to Item model versus a model of its own. 
+- Categories have to be created before Items - debatable if category should belong to Item model versus a model of its own.
 - Categories plus populate to get all items - versus getting categories and items separately
 - List should be changeable if same day? - how should state change ?
 - JWT protection for most routes - getting Items not protected and getting Categories not protected
-- Users route not required 
+- Users route is not required.
 - Statistics doesn't require a route ?
 - Problems if you delete a category - item will be linked non-existent category - have to delete item as well
 - Same if you delete an item have to remove it from category array
 - Guidelines - no deletion of categories or items - both can be added only
-- Cross referencing models might be overkill here 
+- Cross referencing models might be overkill here.
 - Design choice -  add quantity to item model versus list model
-- Need user attached to items ? 
+- Need user attached to items?
 - Problem with making list name unique - different users cannot have same list name
 
 ## How To Use
