@@ -130,8 +130,6 @@ const updateItem = async (req, res) => {
                     return res.status(204).json({ 'message': `Item ID ${req.params.id} not found` });
                 }
 
-                //item.quantity = quantity;
-
                 await item.save()
         
                 res.json(item);

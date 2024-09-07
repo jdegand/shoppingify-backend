@@ -4,17 +4,17 @@ const jwt = require('jsonwebtoken');
 
 const getAllCategories = async (req, res) => {
     try {
-    // populate items ?
-    const categories = await Category.find({}).populate('items');
-    if(!categories) return res.status(204).json({ 'message': "No categories found" });
-    
-    res.json(categories);
-    } catch(err){
+        // populate items ?
+        const categories = await Category.find({}).populate('items');
+        if (!categories) return res.status(204).json({ 'message': "No categories found" });
+
+        res.json(categories);
+    } catch (err) {
         console.log(err)
     }
 }
 
-const createCategory = async (req,res) => {
+const createCategory = async (req, res) => {
 
     const accessToken = req.headers.authorization.split(' ')[1];
 
@@ -27,26 +27,25 @@ const createCategory = async (req,res) => {
             // changed to categoryName
             const { categoryName } = req.body;
             if (!categoryName) return res.status(400).json({ 'message': 'Missing categoryName' });
-        
+
             const duplicate = await Category.findOne({ categoryName: categoryName }).exec()
-        
-            if (duplicate) return res.status(409).json({message: "Category categoryName already exists"})
-        
+
+            if (duplicate) return res.status(409).json({ message: "Category categoryName already exists" })
+
             try {
 
-                await Category.create({ 
+                await Category.create({
                     "categoryName": categoryName
                 });
-                
+
                 res.status(201).json({ 'success': `Category ${categoryName} added!` });
             } catch (err) {
                 res.status(500).json({ 'message': err.message });
             }
-         
+
         }
     );
 }
-
 
 module.exports = {
     getAllCategories,

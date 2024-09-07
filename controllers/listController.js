@@ -32,9 +32,7 @@ const createList = async (req, res) => {
         accessToken,
         process.env.ACCESS_TOKEN_SECRET,
         async (err, decoded) => {
-
             const { listName, state, items } = req.body;
-            //if (!listName) return res.status(400).json({ 'message': 'Missing name for List' });
 
             const duplicate = await List.findOne({ listName: listName }).exec()
 

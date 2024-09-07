@@ -45,8 +45,6 @@ app.use('/categories', categoriesRouter)
 app.use('/items', itemsRouter);
 app.use('/lists', listsRouter);
 
-// app.use('/users', usersRouter); // profile
-
 app.all('*', (req, res) => {
     res.status(404);
     if (req.accepts('html')) {
